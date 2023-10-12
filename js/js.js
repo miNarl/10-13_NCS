@@ -80,16 +80,3 @@ items.addEventListener('click', e => {
   }
 });
 
-// 아이템 이름을 클릭하여 삭제
-items.addEventListener('click', e => {
-  if (e.target.classList.contains('item_name')) {
-    const itemId = e.target.parentElement.parentElement.dataset.id;
-    const indexToDelete = shoppingLists.findIndex(item => item.id == itemId);
-    if (indexToDelete !== -1) {
-      shoppingLists.splice(indexToDelete, 1);
-      save();
-      const toBeDeleted = document.querySelector(`.item_row[data-id="${itemId}"]`);
-      toBeDeleted.remove();
-    }
-  }
-});
